@@ -1,5 +1,5 @@
 import sys
-from flask import Flask
+from flask import Flask,Response
 from datetime import datetime
 import requests
 import time
@@ -42,13 +42,20 @@ def web():
         list_entries=str(i)+'::'+current_time+'::'+'RespCode:'+str(status)
         d.append(list_entries)
         print("Entries:",d,"Type:",type(d))
-        print("Components:\n",d[i].split("::"))
+        #print("Components:\n",d[i].split("::"))
+        clist=d[i].split("::")
+        print("Type::clist",type(clist))
+        data=clist[0]+' '+clist[1]+' '+clist[2]
+        print("Data cleansed",data,"Type",type(data))
         time.sleep(float(pollperiod))
-        k=str(d)
         if i>int(hits):
-            break
-        json_data=json.dumps(d)
+          break  
      
-    return json_data
+    def events(): 
+     for k in range(len(d)):
+        yield str(d[k].split("::"))
+        yield '\n'    
+    
+    return Response(events(),content_type='text/event-stream')
 
 
