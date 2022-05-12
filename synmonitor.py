@@ -39,7 +39,7 @@ def web():
     i=0
     d=list()
     for i in range(int(hits)):
-        list_entries=str(i)+'::'+current_time+'::'+'RespCode:'+str(status)
+        list_entries=str(i)+'::'+current_time+'::'+str(status)
         d.append(list_entries)
         print("Entries:",d,"Type:",type(d))
         #print("Components:\n",d[i].split("::"))
@@ -53,9 +53,13 @@ def web():
      
     def events(): 
      for k in range(len(d)):
-        yield str(d[k].split("::"))
-        yield '\n'    
-    
+         yield str(d[k].split("::")[0])
+         yield '\t'
+         yield str(d[k].split("::")[1])
+         yield '\t'
+         yield str(d[k].split("::")[2])
+         yield '\n'
+
     return Response(events(),content_type='text/event-stream')
 
 
