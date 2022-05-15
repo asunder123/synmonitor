@@ -48,6 +48,7 @@ def web():
         data=clist[0]+' '+clist[1]+' '+clist[2]
         print("Data cleansed",data,"Type",type(data))
         time.sleep(float(pollperiod))
+
         if i>int(hits):
           break  
      

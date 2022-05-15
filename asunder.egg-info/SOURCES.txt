@@ -1,0 +1,6 @@
+README.md
+setup.py
+asunder.egg-info/PKG-INFO
+asunder.egg-info/SOURCES.txt
+asunder.egg-info/dependency_links.txt
+asunder.egg-info/top_level.txt
