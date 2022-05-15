@@ -60,6 +60,6 @@ def web():
          yield str(d[k].split("::")[2])
          yield '\n'
 
-    return Response(events(),content_type='text/event-stream')
+    return Response(events(),content_type='application/json')
 
 
