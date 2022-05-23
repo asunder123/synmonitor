@@ -27,4 +27,4 @@ jobs:
     - name: Docker Push 
       run: |
            docker images
-           docker push synmonitor:latest
+           docker push asunder123/synmonitor:latest
