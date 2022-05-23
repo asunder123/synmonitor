@@ -27,4 +27,4 @@ jobs:
     - name: Docker Push 
       run: |
            docker images
-           #docker push $DOCKER_USER/synmonitor:latest
+           docker push my-image-name:latest
